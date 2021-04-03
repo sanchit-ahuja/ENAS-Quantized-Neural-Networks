@@ -54,7 +54,7 @@ class QuantizedDense(Dense):
                                      initializer=self.kernel_initializer,
                                      name='kernel',
                                      regularizer=self.kernel_regularizer,
-                                     constraint=self.kernel_constraint, set_weight = self.w_getter)
+                                     constraint=self.kernel_constraint,) 
 
         if self.use_bias:
             self.lr_multipliers = [self.kernel_lr_multiplier, self.bias_lr_multiplier]
@@ -139,7 +139,7 @@ class QuantizedConv2D(Conv2D):
                                  initializer=self.kernel_initializer,
                                  name='kernel',
                                  regularizer=self.kernel_regularizer,
-                                 constraint=self.kernel_constraint, set_weight = self.w_getter)
+                                 constraint=self.kernel_constraint,)
 
         if self.use_bias:
             # self.lr_multipliers = [self.kernel_lr_multiplier, self.bias_lr_multiplier]
@@ -247,14 +247,14 @@ class DepthwiseQuantizedConv2D(SeparableConv2D):
                                  initializer=self.kernel_initializer,
                                  name='kernel',
                                  regularizer=self.kernel_regularizer,
-                                 constraint=self.kernel_constraint, **kwargs)
+                                 constraint=self.kernel_constraint,)
 
         kwargs = {'set_weight' : self.w_getter[1]}
         self.pointwise_kernel = self.add_weight(shape=pointwise_kernel_shape,
                                  initializer=self.kernel_initializer,
                                  name='kernel',
                                  regularizer=self.kernel_regularizer,
-                                 constraint=self.kernel_constraint, **kwargs)
+                                 constraint=self.kernel_constraint, )
 
         if self.use_bias:
             # self.lr_multipliers = [self.kernel_lr_multiplier, self.bias_lr_multiplier]

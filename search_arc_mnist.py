@@ -12,12 +12,13 @@ from enas.utils import DEFINE_float
 from enas.utils import DEFINE_integer
 from enas.utils import DEFINE_string
 from enas.utils import print_user_flags
-import enas.data_utils
+from enas import data_utils
 from enas.micro_controller import MicroController
 from enas.micro_child import MicroChild
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
+tf.logging.set_verbosity(tf.logging.ERROR)
 
 # ----- Experiment Settings -----
 DEFINE_string("output_dir", "./output-mnist-search" , "")

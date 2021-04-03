@@ -83,9 +83,12 @@ celerybeat-schedule
 .venv
 env/
 venv/
+enas_env/
 ENV/
 env.bak/
 venv.bak/
+dop/
+.vscode/
 
 # Spyder project settings
 .spyderproject
